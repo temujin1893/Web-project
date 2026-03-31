@@ -1,1 +1,92 @@
-body{margin:0;font-family:Arial;background:#f4f4f4}body.dark{background:#121212;color:#eee}.header{background:red;color:white;text-align:center;padding:20px;position:relative}#darkToggle{position:absolute;right:20px;top:20px;cursor:pointer}.nav{background:#cc0000;display:flex;justify-content:center}.nav a{color:white;padding:12px 18px;text-decoration:none;font-weight:bold}.breaking{background:#fff3f3;padding:8px;font-weight:bold}.container{max-width:1200px;margin:20px auto}.news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}.news-card{background:white;text-decoration:none;color:black;border-radius:4px;overflow:hidden}.news-card img{width:100%;height:180px;object-fit:cover}.news-card h2{font-size:18px;padding:10px}.time{padding:0 10px 10px;font-size:12px;color:gray}
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #f5f5f5;
+  color: #000;
+  transition: 0.3s;
+}
+
+header {
+  background: #bb1919;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+nav {
+  background: #222;
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  margin: 10px;
+  text-decoration: none;
+}
+
+#search {
+  width: 60%;
+  padding: 10px;
+  margin: 15px auto;
+  display: block;
+}
+
+#general-news,
+#business-news,
+#sports-news,
+#health-news,
+#entertainment-news {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.news-card:first-child {
+  grid-column: span 2;
+}
+
+.news-card {
+  background: white;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.news-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.news-card:first-child img {
+  height: 350px;
+}
+
+.news-content {
+  padding: 10px;
+}
+
+button {
+  background: #bb1919;
+  color: white;
+  border: none;
+  padding: 6px;
+  margin: 3px;
+  cursor: pointer;
+}
+
+/* DARK MODE */
+.dark {
+  background: #121212;
+  color: white;
+}
+
+.dark nav {
+  background: #000;
+}
+
+.dark .news-card {
+  background: #1e1e1e;
+}
