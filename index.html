@@ -1,1 +1,67 @@
-<!DOCTYPE html><html><head><meta charset='UTF-8'><title>World in brief  Live News</title><link rel='stylesheet' href='css/style.css'></head><body><header class='header'><h1>THE WORLD IN BRIEF</h1><button id='darkToggle'>🌙</button></header><nav class='nav'><a href='pages/general.html'>News</a><a href='pages/sports.html'>Sport</a><a href='pages/business.html'>Money</a><a href='pages/entertainment.html'>Showbiz</a><a href='pages/health.html'>Health</a></nav><section class='breaking'><strong>BREAKING:</strong><marquee>Live BBC News – Updates Automatically</marquee></section><main class='container'><section id='home-news'></section></main><script src='js/liveNews.js'></script><script src='js/theme.js'></script><script>loadLiveRSS("general","home-news");</script></body></html>
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>World In Brief</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+</head>
+
+<body data-page="general">
+
+<header>
+  <h1>🌍 WORLD IN BRIEF</h1>
+  <button id="darkToggle">🌙</button>
+</header>
+
+<div id="react-root"></div>
+
+<nav>
+  <a href="pages/general.html">General</a>
+  <a href="pages/business.html">Business</a>
+  <a href="pages/sports.html">Sports</a>
+  <a href="pages/health.html">Health</a>
+  <a href="pages/entertainment.html">Entertainment</a>
+</nav>
+
+<input type="text" id="search" placeholder="🔍 Search news..." onkeyup="searchNews()">
+
+<div id="general-news"></div>
+
+<script src="js/liveNews.js"></script>
+<script src="js/app.js"></script>
+<script src="js/theme.js"></script>
+
+<script>
+const e = React.createElement;
+
+function App() {
+  const [lang, setLang] = React.useState(localStorage.getItem("lang") || "english");
+
+  function changeLang(l) {
+    setLang(l);
+    localStorage.setItem("lang", l);
+    loadLiveRSS("general", "general-news", l);
+  }
+
+  return e("div", {style:{textAlign:"center",margin:"10px"}},
+    e("select", { value: lang, onChange: ev => changeLang(ev.target.value) },
+      e("option", { value: "english" }, "English"),
+      e("option", { value: "tamil" }, "Tamil"),
+      e("option", { value: "bengali" }, "Bengali"),
+      e("option", { value: "hindi" }, "Hindi")
+    ),
+
+    e("button", { onClick: summarizeAll }, "🧠"),
+    e("button", { onClick: translateAll }, "🌐"),
+    e("button", { onClick: highlightKeywords }, "🔴")
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("react-root")).render(e(App));
+</script>
+
+</body>
+</html>
