@@ -1,1 +1,33 @@
-<!DOCTYPE html><html><head><title>sports</title><link rel='stylesheet' href='../css/style.css'></head><body><header class='header'><h1>SPORTS</h1><button id='darkToggle'>🌙</button></header><main class='container'><section id='sports-news'></section></main><script src='../js/liveNews.js'></script><script src='../js/theme.js'></script><script>loadLiveRSS("sports","sports-news");</script></body></html>
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>World In Brief - Sports</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body data-page="sports">
+
+<header>
+  <h1>🌍 WORLD IN BRIEF - Sports</h1>
+  <button id="darkToggle">🌙</button>
+</header>
+
+<nav>
+  <a href="../index.html">Home</a>
+  <a href="general.html">General</a>
+  <a href="business.html">Business</a>
+  <a href="health.html">Health</a>
+  <a href="entertainment.html">Entertainment</a>
+</nav>
+
+<input type="text" id="search" onkeyup="searchNews()">
+
+<div id="sports-news"></div>
+
+<script src="../js/liveNews.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/theme.js"></script>
+
+</body>
+</html>
